@@ -14,6 +14,7 @@ board.create_board_with_cells()
 board.board[10][10].set_state(True)
 board.board[10][11].set_state(True)
 board.board[10][12].set_state(True)
+
 # board.board[10][13].set_state(True)
 # board.board[10][14].set_state(True)
 
