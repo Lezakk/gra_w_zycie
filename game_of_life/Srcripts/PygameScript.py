@@ -2,7 +2,7 @@ import pygame, sys
 import BoardClass
 
 
-class Pygame_board():
+class PygameBoard():
     def __init__(self, width, height):
         self.pygame_board = pygame.display.set_mode(size=(width, height))
 
@@ -14,3 +14,6 @@ class Pygame_board():
             size = (board.cell_size, board.cell_size)
             position = (x * board.cell_size, y * board.cell_size)
             pygame.draw.rect(self.pygame_board, alive_cell_color, pygame.Rect(position, size))
+
+
+

@@ -32,14 +32,12 @@ class Board:
                     continue
                 if self.board[col][row].get_state():
                     counter += 1
-        if counter == 3 and self.board[x][y].get_state() is False:
+        if counter == 3:
             self.board[x][y].set_state(True)
-        if counter < 2:
+        elif counter == 2:
+            self.board[x][y].get_state()
+        else:
             self.board[x][y].set_state(False)
-        if counter > 3:
-            self.board[x][y].set_state(False)
-        # else:
-        #     self.board[x][y].set_state(True)
 
     def iterate_through_board_get_neighbors(self):
         for col in range(1, len(self.board) - 1):
@@ -52,3 +50,22 @@ class Board:
                 if self.board[col][row].get_state():
                     yield col, row
 
+    def change_state(self, x, y):
+        state = self.board[x][y].get_state()
+        if state:
+            self.board[x][y].set_state(False)
+        elif state is False:
+            self.board[x][y].set_state(True)
+
+    def handle_mouse(self):
+        buttons = pygame.mouse.get_pressed()
+        if not any(buttons):
+            return
+        click = True if buttons[0] else False
+        x, y = pygame.mouse.get_pos()
+
+        x /= self.cell_size
+        y /= self.cell_size
+
+        if click:
+            self.board[int(x)][int(y)].change_state(int(x), int(y))
