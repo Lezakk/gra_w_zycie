@@ -2,25 +2,19 @@ from BoardFactory import BoardFactory
 import PygameScript
 import pygame, sys
 
+X = 1200
+Y = 800
 pygame.init()
-
-pygame_object = PygameScript.PygameBoard(1200,800)
-
-board = BoardFactory.create_board(100, 100)
+pygame_object = PygameScript.PygameBoard(X, Y)
+board = BoardFactory.create_board(70, 70)
 board.create_board_with_cells()
-# for x in range(70):
-#     for y in range(70):
-#         board.board[x][y].set_state(True)
-# board.board[10][10].set_state(True)
-# board.board[10][11].set_state(True)
-# board.board[10][12].set_state(True)
-
-# board.board[10][13].set_state(True)
-# board.board[10][14].set_state(True)
 
 
 def start_game():
     while True:
+        pygame_object.create_border(board)
+        pygame_object.show_text_game(board)
+        pygame.display.flip()
         pygame.time.delay(100)
         board.iterate_through_board_get_neighbors()
         pygame_object.draw_alive_cells_on_board(board)
@@ -36,6 +30,9 @@ def start_game():
 
 def menu():
     while True:
+        pygame_object.create_border(board)
+        pygame.display.flip()
+        pygame_object.show_text_menu(board)
         x, y = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
