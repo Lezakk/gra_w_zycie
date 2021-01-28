@@ -45,4 +45,6 @@ def menu():
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 start_game()
 
-menu()
+
+if __name__ == "__main__":
+    menu()

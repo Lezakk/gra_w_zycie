@@ -3,7 +3,6 @@ import BoardClass
 
 
 class PygameBoard():
-    text_dict = {"Menu": "Menu:", "Zaznacz": "1. Zaznacz myszką żywe komórki", "Start": "2. Naciśnij spację aby zacząć symulację", "Stop": "3. Wciśnij ESC aby zakończyć"}
     def __init__(self, width, height):
         self.pygame_board = pygame.display.set_mode(size=(width, height))
 
