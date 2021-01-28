@@ -2,10 +2,8 @@ from BoardFactory import BoardFactory
 import PygameScript
 import pygame, sys
 
-X = 1200
-Y = 800
 pygame.init()
-pygame_object = PygameScript.PygameBoard(X, Y)
+pygame_object = PygameScript.PygameBoard(1200, 800)
 board = BoardFactory.create_board(70, 70)
 board.create_board_with_cells()
 
