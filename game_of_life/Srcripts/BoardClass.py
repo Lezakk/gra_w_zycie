@@ -50,12 +50,20 @@ class Board:
                 if self.board[col][row].get_state():
                     yield col, row
 
+    def iterate_through_board_clear_board(self):
+        for col in range(1, len(self.board) - 1):
+            for row in range(1, len(self.board[col]) - 1):
+                self.change_state_to_dead(col, row)
+
     def change_state(self, x, y):
         state = self.board[x][y].get_state()
         if state:
             self.board[x][y].set_state(False)
         elif state is False:
             self.board[x][y].set_state(True)
+
+    def change_state_to_dead(self, x, y):
+        self.board[x][y].set_state(False)
 
     def handle_mouse(self):
         buttons = pygame.mouse.get_pressed()

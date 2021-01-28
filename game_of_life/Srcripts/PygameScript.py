@@ -15,5 +15,3 @@ class PygameBoard():
             position = (x * board.cell_size, y * board.cell_size)
             pygame.draw.rect(self.pygame_board, alive_cell_color, pygame.Rect(position, size))
 
-
-
